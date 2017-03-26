@@ -14,13 +14,21 @@ from .forms import OrderForm
 
 
 def add(request):
-	print 'Entro a Index'
 	if request.method == 'POST':
 		form = OrderForm(request.POST)
 		if form.is_valid():
+			print 'Entro a Save!!!'
 			form.save()
-			#return HttpResponseRedirect('/articles/all')
+			print 'Salio del Save!!!'
+		else:
+			print 'Invalido!!!'
+		return HttpResponseRedirect('/sheduler/')
 	else:
 		print 'Entro a GET'
 		form = OrderForm()
 	return render(request, 'sheduler/formOrder.html', {'form':form})
+
+
+def index_order(request):
+	orders=Order.objects.order_by('-date_in')[:5]
+	return render(request,'sheduler/indexOrder.html',{'request':request, 'orders':orders})

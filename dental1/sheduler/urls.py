@@ -5,9 +5,6 @@ from . import views
 
 app_name = 'sheduler'
 urlpatterns = [
-	# url(r'^$', views.IndexView.as_view(), name='index'),
- #    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-	 url(r'^$', views.add, name='add'),
-	# url(r'^(?P<order_id>[0-9]+)/$', views.detail, name='detail'),
-	# url(r'^(?P<order_id>[0-9]+)/results/$',views.results, name='results'),
+	url(r'^$', views.index_order, name='index_order'),
+	url(r'^new/order/$', views.add, name='add'),
 ]
