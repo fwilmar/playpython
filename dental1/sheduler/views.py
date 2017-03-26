@@ -13,7 +13,7 @@ from .models import Order
 from .forms import OrderForm
 
 
-def index(request):
+def add(request):
 	print 'Entro a Index'
 	if request.method == 'POST':
 		form = OrderForm(request.POST)
