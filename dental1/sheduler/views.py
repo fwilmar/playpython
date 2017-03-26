@@ -30,5 +30,5 @@ def add(request):
 
 
 def index_order(request):
-	orders=Order.objects.order_by('-date_in')[:5]
+	orders=Order.objects.order_by('-date_in')[:100]
 	return render(request,'sheduler/indexOrder.html',{'request':request, 'orders':orders})
